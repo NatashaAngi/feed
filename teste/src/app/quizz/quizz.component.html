@@ -1,0 +1,29 @@
+<div class="quizz-container"> 
+
+    <div class="logo"> 
+       <h1>Buzz<span style="color: greenyellow;">Feed</span> </h1>
+        <h3>{{title}}</h3>
+    </div>
+
+   
+  <div *ngIf=!finished class="questoes">
+    <h3>{{questionSelected.question}}</h3>
+</div>
+
+<div *ngIf=!finished class="options">
+
+  <button
+    *ngFor="let option of questionSelected.options; let i = index"
+    (click)="playerChoose(option.alias)"
+    class="btn-options"
+  >
+    {{option.name}}
+  </button>
+
+</div>
+
+<div *ngIf=finished class="results">
+  <h1>O Seu resultado é:</h1>
+  <p>{{answerSelected}}</p>
+</div>
+</div>
